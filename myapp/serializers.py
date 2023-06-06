@@ -42,3 +42,8 @@ class KindsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Kind
         fields = '__all__'    
+        
+class TaskDateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ['current_time', 'due_date']

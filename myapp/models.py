@@ -9,7 +9,7 @@ class Task(models.Model):
     task_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=20)  # タスク名
     kind = models.CharField(max_length=20)  # タスクの種類
-    current_time = models.DateTimeField(default=timezone.now)  # 現在時間（自動取得）
+    current_time = models.DateTimeField()  # 開始予定日
     due_date = models.DateTimeField()  # 終了予定日
     creator = models.CharField(max_length=200)  # タスク作成者
     assignee = models.CharField(max_length=200)  # タスク実行者

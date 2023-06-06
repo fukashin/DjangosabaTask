@@ -1,7 +1,7 @@
 # urls.py
 from django.urls import path,include
 from rest_framework.routers import DefaultRouter
-from .views import  TaskCreateView ,task_detail,KindListView,KindCreateView
+from .views import  TaskCreateView ,task_detail,KindListView,KindCreateView,task_date_update
 from .sort_views import TaskViewSet
 from .comment_view import CommentListCreateAPIView ,CommentRetrieveUpdateDestroyAPIView
 from . import user_views
@@ -10,6 +10,7 @@ router.register(r'update-info', TaskViewSet, basename='task')
 
 urlpatterns = [
     path('tasks/', TaskCreateView.as_view(), name='create_task'),
+    path('tasks_date/<int:task_id>', task_date_update, name='task_date'),
     path('', include(router.urls)),
     path('comments/', CommentListCreateAPIView.as_view(), name='comment_list_create_api'),
     path('comments/<int:pk>/', CommentRetrieveUpdateDestroyAPIView.as_view(), name='comment_retrieve_update_destroy_api'),
